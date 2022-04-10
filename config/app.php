@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'image_url' => 'bower_components/xp_css/images/',
     /*
     |--------------------------------------------------------------------------
     | Application Name
