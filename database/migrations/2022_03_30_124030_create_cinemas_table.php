@@ -19,7 +19,7 @@ class CreateCinemasTable extends Migration
             $table->string('address', 255);
             $table->string('note', 255)->nullable();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
         });
     }
 

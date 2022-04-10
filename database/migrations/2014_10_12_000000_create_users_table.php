@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('mobile', 255)->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+           
         });
     }
 

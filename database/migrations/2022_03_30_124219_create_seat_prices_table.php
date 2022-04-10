@@ -27,7 +27,7 @@ class CreateSeatPricesTable extends Migration
                 ->references('id')->on('seat_types')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->engine = 'InnoDB';
+            
             
         });
     }

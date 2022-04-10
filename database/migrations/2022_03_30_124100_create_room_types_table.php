@@ -18,7 +18,7 @@ class CreateRoomTypesTable extends Migration
             $table->string('name', 255);
             $table->string('note', 255)->nullable();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+           
         });
     }
 

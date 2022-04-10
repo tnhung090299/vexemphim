@@ -29,7 +29,7 @@ class CreateBillDetailsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
           
-            $table->engine = 'InnoDB';
+            
         });
     }
 

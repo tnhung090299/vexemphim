@@ -28,7 +28,7 @@ class CreateVotesTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             
-            $table->engine = 'InnoDB';
+            
         });
     }
 

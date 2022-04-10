@@ -19,7 +19,7 @@ class CreateItemsTable extends Migration
             $table->decimal('price', 10, 0);
             $table->string('note', 255)->nullable();
             $table->timestamps();
-            $table->engine = 'InnoDB';
+            
         });
     }
 

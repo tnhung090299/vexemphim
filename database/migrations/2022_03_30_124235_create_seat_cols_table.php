@@ -24,7 +24,7 @@ class CreateSeatColsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
            
-            $table->engine = 'InnoDB';
+           
         });
     }
 

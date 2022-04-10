@@ -23,7 +23,7 @@ class CreateSlidesTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+           
         });
     }
 

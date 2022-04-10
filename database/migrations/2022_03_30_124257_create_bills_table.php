@@ -24,7 +24,7 @@ class CreateBillsTable extends Migration
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
          
-            $table->engine = 'InnoDB';
+           
         });
     }
 

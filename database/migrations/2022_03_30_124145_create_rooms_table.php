@@ -29,7 +29,7 @@ class CreateRoomsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->engine = 'InnoDB';
+            
             
         });
     }

@@ -29,7 +29,7 @@ class CreateMoviesTable extends Migration
             $table->tinyInteger('status');
             
             $table->timestamps();
-            $table->engine = 'InnoDB';
+          
         });
     }
 
