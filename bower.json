@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
+    
     "jquery.min": "http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js",
     "bootstrap.min.3.0.2": "http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js",
     "bootstrap.min": "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css",

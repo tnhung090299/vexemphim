@@ -11,5 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.copy('node_modules/corejs-typeahead/dist/typeahead.bundle.min.js', 'public/typeahead');
+mix.copy('resources/custom-css', 'public/custom-css');
+mix.copy('resources/custom-js', 'public/custom-js');

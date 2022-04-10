@@ -9,11 +9,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <!-- Font awesome - icon font -->
-    <link href="{{ asset('bower_components/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('/bower_components/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <!-- Roboto -->
-    <link href='{{ asset('bower_components/css/index') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('/bower_components/css/index') }}' rel='stylesheet' type='text/css'>
     <!-- Open Sans -->
-    <link href='{{ asset('bower_components/css/index') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('/bower_components/css/index') }}' rel='stylesheet' type='text/css'>
     <!-- Stylesheets -->
     <link href='{{ asset('bower_components/bootstrap.min/index.css') }}' rel='stylesheet' type='text/css'>
     <!-- jQuery UI --> 
