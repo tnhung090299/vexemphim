@@ -9,17 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <!-- Font awesome - icon font -->
-    <link href="{{ asset('/bower_components/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('bower_components/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <!-- Roboto -->
-    <link href='{{ asset('/bower_components/css/index') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('bower_components/css/index') }}' rel='stylesheet' type='text/css'>
     <!-- Open Sans -->
-    <link href='{{ asset('/bower_components/css/index') }}' rel='stylesheet' type='text/css'>
+    <link href='{{ asset('bower_components/css/index') }}' rel='stylesheet' type='text/css'>
     <!-- Stylesheets -->
     <link href='{{ asset('bower_components/bootstrap.min/index.css') }}' rel='stylesheet' type='text/css'>
     <!-- jQuery UI --> 
     <link href="{{ asset('bower_components/jquery-ui1/index.css') }}" rel="stylesheet">
     <!-- Mobile menu -->
-    <link href="{{ asset('bower_components/xp_css/css/gozha-nav.css') }}" rel="stylesheet" />
+    <link href="{{ asset('./bower_components/xp_css/css/gozha-nav.css') }}" rel="stylesheet" />
     <!-- Select -->
     <link href="{{ asset('bower_components/xp_css/css/external/jquery.selectbox.css') }}" rel="stylesheet" />
     <!-- Magnific-popup -->
