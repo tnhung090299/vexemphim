@@ -2,6 +2,9 @@
 
 return [
     'image_url' => 'bower_components/xp_css/images/',
+    'image_pay' => 'bower_components/xp_css/images/payment/',
+    'upload_cover' => 'upload/cover_movie/',
+    'upload_slide' => 'upload/slide_movie/',
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -66,8 +69,7 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
-
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
     |--------------------------------------------------------------------------
