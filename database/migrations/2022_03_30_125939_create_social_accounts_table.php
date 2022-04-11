@@ -18,7 +18,7 @@ class CreateSocialAccountsTable extends Migration
             $table->string('provider_user_id');
             $table->string('provider');
             $table->timestamps();
-            $table->engine = 'InnoDB';
+          
         });
     }
 
