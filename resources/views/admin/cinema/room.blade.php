@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createNewRoom">{{ __('label.createNewRoom') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewRoom">{{ __('label.createNewRoom') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -10,8 +10,6 @@
                 <th>{{ __('label.roomType') }}</th>
                 <th>{{ __('label.name') }}</th>
                 <th>{{ __('label.note') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
                 <th>{{ __('label.action') }}</th>
             </tr>
         </thead>
@@ -33,7 +31,7 @@
                     <input type="hidden" name="room_id" id="room_id">
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="cinema_id" name="cinema_id">
+                            <select class="form-control" id="cinema_id" name="cinema_id">
                                 <option value=''>{{ __('label.chooseCinema') }}</option>
                                 @foreach ($cinemas as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -43,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="room_type_id" name="room_type_id">
+                            <select class="form-control" id="room_type_id" name="room_type_id">
                                 <option value=''>{{ __('label.chooseRoomType') }}</option>
                                 @foreach ($room_type as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -52,13 +50,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">{{ __('label.name') }}</label>
+                        <label for="name" class="col-sm-4 control-label">{{ __('label.name') }}</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('label.enterName') }}" value="">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ __('label.note') }}</label>
+                        <label class="col-sm-4 control-label">{{ __('label.note') }}</label>
                         <div class="col-sm-12">
                             <textarea id="note" name="note" placeholder="{{ __('label.enterNote') }}" class="form-control"></textarea>
                         </div>
@@ -92,8 +90,6 @@
             {data: 'room_type.name', name: 'room_type.name'},
             {data: 'name', name: 'name'},
             {data: 'note', name: 'note'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -145,8 +141,8 @@
     $('body').on('click', '.deleteRoom', function () {
         var room_id = $(this).data("id");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

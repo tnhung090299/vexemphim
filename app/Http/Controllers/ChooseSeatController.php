@@ -10,9 +10,9 @@ use App\Models\Seat_row;
 use App\Models\Showtime;
 
 use Pusher\Pusher;
-use Session;
-use Auth;
-use LRedis;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class ChooseSeatController extends Controller
 {
@@ -60,7 +60,7 @@ class ChooseSeatController extends Controller
         $seatSelected = [];
         $allShowtime = $this->scanAllForMatch('showtimeByUser*');
         foreach ($allShowtime as $key) {
-            $a = json_decode(LRedis::get($key));
+            $a = json_decode(Redis::get($key));
             if ($a[0] == $id && $a[1] != Auth::id()) {
                 foreach ($a[2] as $value) {
                     array_push($seatSelected, $value);
@@ -98,7 +98,7 @@ class ChooseSeatController extends Controller
         }
 
         // The call
-        $result = LRedis::scan($cursor, 'match', $pattern);
+        $result = Redis::scan($cursor, 'match', $pattern);
 
         // Append results to array
         $allResults = array_merge($allResults, $result[1]);
@@ -189,7 +189,7 @@ class ChooseSeatController extends Controller
             '792535',
             $options
         );
-        LRedis::set('showtimeByUser' . Auth::id(), json_encode([$request->showtime, Auth::id(), $request->seats]), 'EX', 600);
+        Redis::set('showtimeByUser' . Auth::id(), json_encode([$request->showtime, Auth::id(), $request->seats]), 'EX', 600);
         $data['seats'] = $request->seats;
         $data['showtime'] = $request->showtime;
         $data['user'] = Auth::id();

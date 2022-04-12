@@ -130,7 +130,7 @@ return [
     //footer
     'by' => 'By :company',
     'web-name' => 'A.MOVIE',
-    'copy-rights' => 'A.Movie, 2019. All rights reserved. Done by TeamFlash',
+    'copy-rights' => 'Movie, 2022.',
     //btn
     'delete' => 'Delete',
     'edit' => 'Edit',

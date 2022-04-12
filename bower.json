@@ -6,7 +6,6 @@
     "TruongHung <tnhung090299@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/awesome-academy/cinema01",
   "ignore": [
     "**/.*",
     "node_modules",

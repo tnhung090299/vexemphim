@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createShowtime">{{ __('label.createShowtime') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createShowtime">{{ __('label.createShowtime') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -9,8 +9,6 @@
                 <th>{{ __('label.movie') }}</th>
                 <th>{{ __('label.room') }}</th>
                 <th>{{ __('label.timestart') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
                 <th>{{ __('label.action') }}</th>
             </tr>
         </thead>
@@ -32,7 +30,7 @@
                     <input type="hidden" name="showtime_id" id="showtime_id">
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="movie_id" name="movie_id">
+                            <select class="form-control" id="movie_id" name="movie_id">
                                 <option value=''>{{ __('label.chooseMovie') }}</option>
                                 @foreach ($movies as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -42,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="cinema_id" name="cinema_id">
+                            <select class="form-control" id="cinema_id" name="cinema_id">
                                 <option value=''>{{ __('label.chooseCinema') }}</option>
                                 @foreach ($cinemas as $cinema)
                                     <option value="{{ $cinema->id }}">{{ $cinema->name }}</option>
@@ -52,7 +50,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="room_id" class="hideClass" name="room_id">
+                            <select class="form-control" id="room_id" class="hideClass" name="room_id">
                                 <option value=''>{{ __('label.chooseRoom') }}</option>
                             </select>
                         </div>
@@ -107,10 +105,10 @@
                 var string = a + '-' + b;
                 $.get("{{ route('room.index') }}" + '/' + string, function (data) {
                     $('.list-group').show();
-                    var html = `<li class="list-group-item active">Empty time for three days with ` + data.time + ` min</li>`;
+                    var html = `<li class="list-group-item active">Khoản Thời Gian Trống  ` + data.time + ` min</li>`;
                     delete data.time;
                     if (jQuery.isEmptyObject(data)) {
-                        html += `<li class="list-group-item">Not empty</li>`
+                        html += `<li class="list-group-item">Trống</li>`
                         $('.takeTime').hide();
                     } else {
                         $.each(data, function (key, value) {
@@ -140,8 +138,6 @@
             {data: 'movie.name', name: 'movie.name'},
             {data: 'room.name', name: 'room.name'},
             {data: 'timestart', name: 'timestart'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -233,8 +229,8 @@
     $('body').on('click', '.deleteShowtime', function () {
         var showtime_id = $(this).data("id");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

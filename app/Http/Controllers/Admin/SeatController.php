@@ -50,7 +50,7 @@ class SeatController extends Controller
         $cinemas = Cinema::all();
         $seat_type = Seat_type::all();
 
-        return view('admin.cinema.seat', compact('seat_type', 'room', 'cinemas'));
+        return view('admin.cinema.seat', compact('seat_type', 'cinemas'));
     }
 
     /**

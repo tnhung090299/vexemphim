@@ -9,36 +9,36 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>{{ __('Manages') }}</span>
+            <span>Danh Sách</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="{{ route('cinema.index') }}">{{ __('Cinema') }}</a>
-            <a class="dropdown-item" href="{{ route('room.index') }}">{{ __('Room') }}</a>
-            <a class="dropdown-item" href="{{ route('room_type.index') }}">{{ __('Room Type') }}</a>
-            <a class="dropdown-item" href="{{ route('seat.index') }}">{{ __('Seat') }}</a>
-            <a class="dropdown-item" href="{{ route('seat_type.index') }}">{{ __('Seat Type') }}</a>
-            <a class="dropdown-item" href="{{ route('seat_price.index') }}">{{ __('Seat Price') }}</a>
-            <a class="dropdown-item" href="{{ route('movie.index') }}">{{ __('Movie') }}</a>
-            <a class="dropdown-item" href="{{ route('showtime.index') }}">{{ __('Showtime') }}</a>
-            <a class="dropdown-item" href="{{ route('slide.index') }}">{{ __('Slide') }}</a>
+            <a class="dropdown-item" href="{{ route('cinema.index') }}">Rạp Phim</a>
+            <a class="dropdown-item" href="{{ route('room.index') }}">Phòng</a>
+            <a class="dropdown-item" href="{{ route('room_type.index') }}">Loại Phòng</a>
+            <a class="dropdown-item" href="{{ route('seat.index') }}">Ghế</a>
+            <a class="dropdown-item" href="{{ route('seat_type.index') }}">Loại Ghế</a>
+            <a class="dropdown-item" href="{{ route('seat_price.index') }}">Giá Ghế</a>
+            <a class="dropdown-item" href="{{ route('movie.index') }}">Phim</a>
+            <a class="dropdown-item" href="{{ route('showtime.index') }}">Xuất Chiếu</a>
+            <!--<a class="dropdown-item" href="{{ route('slide.index') }}">Trạng Thái phim</a>-->
         </div>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('ticket.index') }}">
             <i class="fas fa-fw fa-ticket-alt"></i>
-            <span>Tickets</span>
+            <span>Vé</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('adm-bill.index') }}">
             <i class="fas fa-money-bill"></i>
-            <span>Bills</span>
+            <span>Hóa Đơn</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{{ route('user.index') }}">
             <i class="fas fa-users"></i>
-            <span>Members</span>
+            <span>Người Dùng</span>
         </a>
     </li>
     {{-- Map --}}

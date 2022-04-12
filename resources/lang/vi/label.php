@@ -124,7 +124,7 @@ return [
     //footer
     'by' => 'Bởi :company',
     'web-name' => 'A.MOVIE',
-    'copy-rights' => 'A.Movie, 2019. Đã đăng ký Bản quyền. Thực hiện bởi TeamFlash',
+    'copy-rights' => 'Movie, 2022',
     //btn
     'delete' => 'Xóa',
     'edit' => 'Sửa',

@@ -1,15 +1,13 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createSeatType">{{ __('label.createSeatType') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createSeatType">{{ __('label.createSeatType') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th>{{ __('label.id') }}</th>
                 <th>{{ __('label.name') }}</th>
                 <th>{{ __('label.note') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
                 <th>{{ __('label.action') }}</th>
             </tr>
         </thead>
@@ -30,13 +28,13 @@
                 <form id="seatTypeForm" name="seatTypeForm" class="form-horizontal">
                    <input type="hidden" name="seat_type_id" id="seat_type_id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">{{ __('label.name') }}</label>
+                        <label for="name" class="col-sm-4 control-label">{{ __('label.name') }}</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('label.enterName') }}" value="" maxlength="50">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">{{ __('label.note') }}</label>
+                        <label class="col-sm-4 control-label">{{ __('label.note') }}</label>
                         <div class="col-sm-12">
                             <textarea id="note" name="note" placeholder="{{ __('label.enterNote') }}" class="form-control"></textarea>
                         </div>
@@ -67,8 +65,6 @@
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
             {data: 'note', name: 'note'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -119,8 +115,8 @@
     $('body').on('click', '.deleteSeatType', function () {
         var seat_type_id = $(this).data("id");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

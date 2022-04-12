@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createSeatPrice">{{ __('label.createSeatPrice') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createSeatPrice">{{ __('label.createSeatPrice') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -9,8 +9,6 @@
                 <th>{{ __('label.roomType') }}</th>
                 <th>{{ __('label.seatType') }}</th>
                 <th>{{ __('label.price') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
                 <th>{{ __('label.action') }}</th>
             </tr>
         </thead>
@@ -32,7 +30,7 @@
                     <input type="hidden" name="seat_price_id" id="seat_price_id">
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="room_type_id" name="room_type_id">
+                            <select class="form-control" id="room_type_id" name="room_type_id">
                                 <option value=''>{{ __('label.chooseRoomType') }}</option>
                                 @foreach ($room_type as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -42,7 +40,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="seat_type_id" name="seat_type_id">
+                            <select class="form-control" id="seat_type_id" name="seat_type_id">
                                 <option value=''>{{ __('label.chooseSeatType') }}</option>
                                 @foreach ($seat_type as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -83,8 +81,6 @@
             {data: 'room_type.name', name: 'room_type.name'},
             {data: 'seat_type.name', name: 'seat_type.name'},
             {data: 'price', name: 'price'},
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -135,8 +131,8 @@
     $('body').on('click', '.deleteSeatPrice', function () {
         var seat_price_id = $(this).data("id");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

@@ -88,7 +88,7 @@
                                 <th>{{ __('label.detail') }}</th>
                             </thead>
                             <tbody>
-                                @foreach ($bills as $key => $bill)
+                                @foreach ($bills as key$ => $bill)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $bill->total }}</td>
@@ -131,7 +131,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@
     <!-- jQuery UI --> 
     <link href="{{ asset('bower_components/jquery-ui1/index.css') }}" rel="stylesheet">
     <!-- Mobile menu -->
-    <link href="{{ asset('./bower_components/xp_css/css/gozha-nav.css') }}" rel="stylesheet" />
+    <link href="{{ asset('bower_components/xp_css/css/gozha-nav.css') }}" rel="stylesheet" />
     <!-- Select -->
     <link href="{{ asset('bower_components/xp_css/css/external/jquery.selectbox.css') }}" rel="stylesheet" />
     <!-- Magnific-popup -->

@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createSeatRow">{{ __('label.createSeatRow') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createSeatRow">{{ __('label.createSeatRow') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -99,7 +99,7 @@
                     <input type="hidden" name="id" id="id">
                     <div class="form-group"> 
                         <div class="col-sm-12">
-                            <select id="cinema_id" name="cinema_id">
+                            <select class="form-control" id="cinema_id" name="cinema_id">
                                 <option value=''>{{ __('label.chooseCinema') }}</option>
                                 @foreach ($cinemas as $cinema)
                                     <option value="{{ $cinema->id }}">{{ $cinema->name }}</option>
@@ -109,14 +109,14 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="room_id" class="hideClass" name="room_id">
+                            <select class="form-control" id="room_id" class="hideClass" name="room_id">
                                 <option value=''>{{ __('label.chooseRoom') }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="seat_type_id" name="seat_type_id">
+                            <select class="form-control" id="seat_type_id" name="seat_type_id">
                                 <option value=''>{{ __('label.chooseSeatType') }}</option>
                                 @foreach ($seat_type as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -295,8 +295,8 @@
     $('body').on('click', '.deleteSeatRow', function () {
         var id = $(this).data("id");
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

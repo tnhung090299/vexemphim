@@ -44,5 +44,5 @@ Route::get('/redirect/{social}', 'SocialAuthController@redirect');
 Route::get('/callback/{social}', 'SocialAuthController@callback');
 Route::get('lang/{lang}', 'LangController@changeLang')->name('lang');
 Route::post('sendmess', 'ChooseSeatController@postSend');
-Route::resource('pdf','pdfController');
+Route::resource('pdf','DPFController');
 Route::resource('map', 'MapController');

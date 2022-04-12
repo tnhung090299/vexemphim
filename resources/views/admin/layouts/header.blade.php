@@ -6,7 +6,7 @@
         <i class="fas fa-bars"></i>
     </button>
     <a href="{{ route('home') }}" class="logo">
-        <img alt='logo' src="{{ asset(config('app.image_url') . 'logo.png') }}">
+        <img width="50" height="50" alt='logo' src="{{ asset(config('app.image_url') . 'Logo.png') }}">
     </a>
     <ul class="navbar-nav ml-auto">                    
         <li class="nav-item dropdown no-arrow">
@@ -21,7 +21,7 @@
                 <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"
                     onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+                    Đăng Xuất
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf

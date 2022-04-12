@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createMovie">{{ __('label.createMovie') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createMovie">{{ __('label.createMovie') }}</a><a id="mess"></a>
     <table class="display data-table">
         <thead>
             <tr>
@@ -10,8 +10,6 @@
                 <th>{{ __('label.name') }}</th>
                 <th>{{ __('label.duration') }}</th>
                 <th>{{ __('label.status') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
                 <th>{{ __('label.action') }}</th>
             </tr>
         </thead>
@@ -32,16 +30,16 @@
                 <form id="movieForm" name="movieForm" enctype="multipart/form-data" class="form-horizontal">
                    <input type="hidden" name="movie_id" id="movie_id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">{{ __('label.name') }}</label>
+                        <label for="name" class="col-sm-4 control-label">{{ __('label.name') }}</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('label.enterName') }}" value="">
                         </div>
                     </div>
                     <div class="row col-sm-12">
                         <div class="form-group col-sm">
-                            <label class="col-sm-2 control-label">{{ __('label.status') }}</label>
+                            <label class=" control-label">{{ __('label.status') }}</label>
                             <div class="col-sm-12">
-                                <select id="status" name="status">
+                                <select class="form-control" id="status" name="status">
                                     <option value="">{{ __('label.chooseStatus') }}</option>
                                     <option value="1">{{ __('label.showing') }}</option>
                                     <option value="2">{{ __('label.soon') }}</option>
@@ -50,13 +48,13 @@
                             </div>
                         </div>
                         <div class="form-group col-sm">
-                            <label class="col-sm-2 control-label">{{ __('label.duration') }}</label>
+                            <label class="  control-label">{{ __('label.duration') }}</label>
                             <div class="col-sm-12">
                                 <input type="number" id="duration" name="duration" placeholder="{{ __('label.enterDuration') }}" class="form-control">
                             </div>
                         </div>
                         <div class="form-group col-sm">
-                            <label for="country" class="col-sm-2 control-label">{{ __('label.country') }}</label>
+                            <label for="country" class="  control-label">{{ __('label.country') }}</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="country" name="country" placeholder="{{ __('label.enterCountry') }}" value="">
                             </div>
@@ -64,26 +62,26 @@
                     </div>
                     <div class="row col-sm-12">
                         <div class="form-group col-sm">
-                            <label for="director" class="col-sm-2 control-label">{{ __('label.director') }}</label>
+                            <label for="director" class="  control-label">{{ __('label.director') }}</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="director" name="director" placeholder="{{ __('label.enterDirector') }}" value="">
                             </div>
                         </div>
                         <div class="form-group col-sm">
-                            <label for="type" class="col-sm-2 control-label">{{ __('label.type') }}</label>
+                            <label for="type" class="  control-label">{{ __('label.type') }}</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="type" name="type" placeholder="{{ __('label.enterType') }}" value="">
                             </div>
                         </div>
                         <div class="form-group col-sm">
-                            <label for="producer" class="col-sm-2 control-label">{{ __('label.product') }}</label>
+                            <label for="producer" class="  control-label">{{ __('label.product') }}</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="producer" name="producer" placeholder="{{ __('label.enterProduct') }}" value="">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="actor" class="col-sm-2 control-label">{{ __('label.actor') }}</label>
+                        <label for="actor" class=" control-label">{{ __('label.actor') }}</label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control" id="actor" name="actor" placeholder="{{ __('label.enterActor') }}" value="">
                         </div>
@@ -168,8 +166,6 @@
                     }
                 },
             },
-            {data: 'created_at', name: 'created_at'},
-            {data: 'updated_at', name: 'updated_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
@@ -233,8 +229,8 @@
     $('body').on('click', '.deleteMovie', function () {
         var movie_id = $(this).data('id');
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this data!",
+            title: "Bạn chắc chắn xóa chứ!",
+            text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
             icon: "warning",
             buttons: true,
             dangerMode: true,

@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
-    <a class="btn btn-success" href="javascript:void(0)" id="createNewSlide">{{ __('label.createSlide') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewSlide">{{ __('label.createSlide') }}</a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
@@ -31,7 +31,7 @@
                     <input type="hidden" name="slide_id" id="slide_id">
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="movie_id" name="movie_id">
+                            <select class="form-control" id="movie_id" name="movie_id">
                                 <option value=''>{{ __('label.chooseMovie') }}</option>
                                 @foreach ($movies as $data)
                                     <option value="{{ $data->id }}">{{ $data->name }}</option>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <select id="status" name="status">
+                            <select class="form-control" id="status" name="status">
                                 <option value="">{{ __('label.chooseStatus') }}</option>
                                 <option value="0">{{ __('label.hide') }}</option>
                                 <option value="1">{{ __('label.show') }}</option>
