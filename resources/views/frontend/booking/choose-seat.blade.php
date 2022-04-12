@@ -5,6 +5,7 @@
         <div class="order-container">
             <div class="order">
                 <img class="order__images" alt='' src="{{ asset(config('app.image_url') . 'tickets.png') }}">
+                
                 <p class="order__title">{{ __('label.book') }}<br><span class="order__descript">{{ __('label.orderDescript') }}</span></p>
             </div>
         </div>

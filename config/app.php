@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'image_url' => 'bower_components/xp_css/images/',
     'image_pay' => 'bower_components/xp_css/images/payment/',
     'upload_cover' => 'upload/cover_movie/',
@@ -69,6 +70,7 @@ return [
     | ahead and set this to a sensible default for you out of the box.
     |
     */
+
     'timezone' => 'Asia/Ho_Chi_Minh',
 
     /*
@@ -164,7 +166,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
          */
@@ -223,9 +225,8 @@ return [
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
-        'Request' => Illuminate\Support\Facades\Request::class,
         'LRedis' => Illuminate\Support\Facades\Redis::class,
+        'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
@@ -241,7 +242,6 @@ return [
         'Converter' => Anam\PhantomMagick\Facades\Converter::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
-
     ],
 
 ];

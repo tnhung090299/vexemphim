@@ -6,7 +6,7 @@ use Illuminate\View\View;
 
 use App\Models\Movie;
 
-use Cache;
+use Illuminate\Support\Facades\Cache;
 
 class MenuComposer
 {
