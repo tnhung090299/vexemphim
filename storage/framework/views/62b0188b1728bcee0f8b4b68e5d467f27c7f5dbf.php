@@ -72,13 +72,7 @@
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-            <aside class="col-sm-4 col-md-3">
-                <div class="sitebar first-banner--left">
-                    <div class="banner-wrap first-banner--left">
-                        <img alt='banner' src="<?php echo e(asset(config('app.image_url') . '500x500.png')); ?>">
-                    </div>
-                </div>
-            </aside>
+            
         </div>
     </div>     
 </section> 

@@ -3,7 +3,7 @@
     <section class="container">
         <div class="order-container">
             <div class="order">
-                <img class="order__images" alt='' src="<?php echo e(asset(config('app.image_url') . 'tickets.png')); ?>">
+                <img class="order__images" alt='' src="<?php echo e(asset(config('app.image_url') . 'movieticket.png')); ?>">
                 
                 <p class="order__title"><?php echo e(__('label.book')); ?><br><span class="order__descript"><?php echo e(__('label.orderDescript')); ?></span></p>
             </div>

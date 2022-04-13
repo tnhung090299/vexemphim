@@ -9,20 +9,43 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Danh Sách</span>
+            <span>Quản Lý Phòng</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown"> 
+            <a class="dropdown-item" href="{{ route('room_type.index') }}">Loại Phòng</a>
+            <a class="dropdown-item" href="{{ route('room.index') }}">Phòng</a>
+          
+            
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Quản Lý Phim</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <a class="dropdown-item" href="{{ route('cinema.index') }}">Rạp Phim</a>
-            <a class="dropdown-item" href="{{ route('room.index') }}">Phòng</a>
-            <a class="dropdown-item" href="{{ route('room_type.index') }}">Loại Phòng</a>
+            <a class="dropdown-item" href="{{ route('movie.index') }}">Phim</a>
+            <a class="dropdown-item" href="{{ route('showtime.index') }}">Xuất Chiếu</a>
+            <a class="dropdown-item" href="{{ route('slide.index') }}">Trạng Thái phim</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>Quản Lý Ghế</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+            
             <a class="dropdown-item" href="{{ route('seat.index') }}">Ghế</a>
             <a class="dropdown-item" href="{{ route('seat_type.index') }}">Loại Ghế</a>
             <a class="dropdown-item" href="{{ route('seat_price.index') }}">Giá Ghế</a>
-            <a class="dropdown-item" href="{{ route('movie.index') }}">Phim</a>
-            <a class="dropdown-item" href="{{ route('showtime.index') }}">Xuất Chiếu</a>
-            <!--<a class="dropdown-item" href="{{ route('slide.index') }}">Trạng Thái phim</a>-->
+       
+            
         </div>
     </li>
+
+    
     <li class="nav-item">
         <a class="nav-link" href="{{ route('ticket.index') }}">
             <i class="fas fa-fw fa-ticket-alt"></i>

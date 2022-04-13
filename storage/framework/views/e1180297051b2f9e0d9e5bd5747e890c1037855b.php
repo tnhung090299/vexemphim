@@ -1,36 +1,33 @@
-@extends('frontend.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <input type="hidden" class="getIdMovie" value="1">
-<input type="hidden" class="getRouteMovie" value="{{ route('movie-detail.store') }}">
-<input type="hidden" class="getNow" value="{{ \Carbon\Carbon::now() }}">
+<input type="hidden" class="getRouteMovie" value="<?php echo e(route('movie-detail.store')); ?>">
+<input type="hidden" class="getNow" value="<?php echo e(\Carbon\Carbon::now()); ?>">
 <section class="container">
     <div class="order-container">
         <div class="order">
-            <img class="order__images" alt='' src="{{ asset(config('app.image_url') . 'movieticket.png') }}">
-            <p class="order__title">{{ __('label.book') }}<br><span class="order__descript">{{ __('label.orderDescript') }}</span></p>
+            <img class="order__images" alt='' src="<?php echo e(asset(config('app.image_url') . 'movieticket.png')); ?>">
+            <p class="order__title"><?php echo e(__('label.book')); ?><br><span class="order__descript"><?php echo e(__('label.orderDescript')); ?></span></p>
         </div>
     </div>
-    {{-- <div class="order-step-area">
-        <div class="order-step first--step">{{ __('label.firstStep') }}</div>
-    </div> --}}
-{{--     <h2 class="page-heading heading--outcontainer">{{ __('label.chooseMovie') }}</h2> --}}
+    
+
 </section>
 <div class="col-sm-12">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#movie">{{ __('label.byMovie') }}</a></li>
-        <li><a data-toggle="tab" href="#cinema">{{ __('label.byCinema') }}</a></li>
+        <li class="active"><a data-toggle="tab" href="#movie"><?php echo e(__('label.byMovie')); ?></a></li>
+        <li><a data-toggle="tab" href="#cinema"><?php echo e(__('label.byCinema')); ?></a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane  active" id="movie">
             <div class="choose-film">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        @foreach ($movies as $movie)
-                            <div class="swiper-slide" data-film="{{ $movie->name }}" data-id="{{ $movie->id }}">
-                                <img class="styleBgImage" src="{{ asset(config('app.upload_cover') . $movie->image) }}">
-                                <p class="choose-film__title">{{ $movie->name }}</p>
+                        <?php $__currentLoopData = $movies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $movie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="swiper-slide" data-film="<?php echo e($movie->name); ?>" data-id="<?php echo e($movie->id); ?>">
+                                <img class="styleBgImage" src="<?php echo e(asset(config('app.upload_cover') . $movie->image)); ?>">
+                                <p class="choose-film__title"><?php echo e($movie->name); ?></p>
                             </div>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -38,9 +35,9 @@
             <section class="container">
                 <div class="col-sm-12">
                     <div class="choose-indector choose-indector--film">
-                        <strong>{{ __('label.choosen') }}</strong><span class="choosen-area"></span>
+                        <strong><?php echo e(__('label.choosen')); ?></strong><span class="choosen-area"></span>
                     </div>
-                    <h2 class="page-heading">{{ __('label.cityDate') }}</h2>
+                    <h2 class="page-heading"><?php echo e(__('label.cityDate')); ?></h2>
                     <div class="choose-container choose-container--short ">
                         <div id="datepicker" class="input-group date col-md-3" data-date-format="yyyy-mm-dd">
                             <input class="form-control inputDate" readonly="" type="text">
@@ -49,7 +46,7 @@
                             </span> 
                         </div>
                     </div>
-                    <h2 class="page-heading">{{ __('label.pickTime') }}</h2>
+                    <h2 class="page-heading"><?php echo e(__('label.pickTime')); ?></h2>
                     <div class="choose-container">
                         <div class="clearfix"></div>
                         <div class="time-select"></div>
@@ -60,19 +57,19 @@
         <div class="tab-pane" id="cinema">
             <section class="container">
                 <div class="list-group col-md-4">
-                    <a class="list-group-item active"><b>{{ __('label.selectCinema') }}</b></a>
-                    @foreach ($cinemas as $cinema)
-                        <a href="javascript:void(0)" class="list-group-item cinemaId" data-id="{{ $cinema->id }}">{{ $cinema->name }}</a>
-                    @endforeach
+                    <a class="list-group-item active"><b><?php echo e(__('label.selectCinema')); ?></b></a>
+                    <?php $__currentLoopData = $cinemas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cinema): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <a href="javascript:void(0)" class="list-group-item cinemaId" data-id="<?php echo e($cinema->id); ?>"><?php echo e($cinema->name); ?></a>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="list-group col-md-4">
-                    <a class="list-group-item active"><b>{{ __('label.selectMovie') }}</b></a>
+                    <a class="list-group-item active"><b><?php echo e(__('label.selectMovie')); ?></b></a>
                     <div class="chooseMoive">
                         <a class="list-group-item">Vui lòng chọn phim</a>
                     </div>
                 </div>
                 <div class="list-group col-md-4">
-                    <a class="list-group-item active"><b>{{ __('label.selectSession') }}</b></a>
+                    <a class="list-group-item active"><b><?php echo e(__('label.selectSession')); ?></b></a>
                     <ul class="list-group chooseTime">
                         <li class="list-group-item">Vui lòng chọn suất</li>
                     </ul>
@@ -80,8 +77,8 @@
             </section>
         </div>
     </div>
-    <form id='showtimeForm' class='booking-form' method="POST" action="{{ route('choose-seat.store') }}">
-        @csrf
+    <form id='showtimeForm' class='booking-form' method="POST" action="<?php echo e(route('choose-seat.store')); ?>">
+        <?php echo csrf_field(); ?>
         <input type="hidden" name="showtime_id" id="showtime_id">
         <div id="booking-next" class="booking-pagination class-hide">
             <a href="#" class="booking-pagination__prev hide--arrow">
@@ -89,22 +86,22 @@
                 <span class="arrow__info"></span>
             </a>
             <button class="booking-pagination__next">
-                <span class="arrow__text arrow--next">{{ __('label.nextStep') }}</span>
-                <span class="arrow__info">{{ __('label.chooseSit') }}</span>
+                <span class="arrow__text arrow--next"><?php echo e(__('label.nextStep')); ?></span>
+                <span class="arrow__info"><?php echo e(__('label.chooseSit')); ?></span>
             </button>
         </div>
     </form>
-    <input type="hidden" class="uploadCover" value="{{ asset(config('app.upload_cover')) }}">
+    <input type="hidden" class="uploadCover" value="<?php echo e(asset(config('app.upload_cover'))); ?>">
     <form id="dateAndId">
-        @csrf
+        <?php echo csrf_field(); ?>
         <input type="hidden" name="idFilter" class="idFilter">
         <input type="hidden" name="dateFilter" class="dateFilter">
     </form>
 </div>
 <input type="hidden" class="getIdCinema" value="">
-@stop
-@push('scripts')
-<script type="text/javascript" src="{{ asset('custom-js/booking.js') }}"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('scripts'); ?>
+<script type="text/javascript" src="<?php echo e(asset('custom-js/booking.js')); ?>"></script>
 <script type="text/javascript">
     today = new Date()
     dayIndex = today.getDay()
@@ -159,4 +156,6 @@
         $('#showtime_id').val(id);
     })
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views/frontend/booking/booking.blade.php ENDPATH**/ ?>

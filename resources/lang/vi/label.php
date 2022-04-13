@@ -14,7 +14,7 @@ return [
     'search_for' => 'Tìm kiếm ...',
     'profile' => 'Cá nhân',
     //content
-    'movie_best' => 'Sự lựa chọn tốt nhất',
+    'movie_best' => 'PHIM ĐANG HOT',
     'rate' => ':data',
     'vote_day' => ':data người đã bình chọn ngày hôm nay',
     'movie_time' => ':data phút',
@@ -33,7 +33,7 @@ return [
     'showtime_ticket' => 'lịch chiếu & vé',
     'not_showtime' => 'Hiện chưa có lịch chiếu phim cho phim này',
     'more' => 'thêm',
-    'all_now' => 'kiểm tra tất cả các bộ phim đang chiếu',
+    'all_now' => 'Tất cả các bộ phim đang chiếu',
     'now_cinema' => 'Phim đang chiếu',
     //admin create new
     'id' => 'Id',
@@ -123,8 +123,8 @@ return [
     'Confirm-Password' => 'Nhập lại mật khẩu', 
     //footer
     'by' => 'Bởi :company',
-    'web-name' => 'A.MOVIE',
-    'copy-rights' => 'A.Movie, 2019. Đã đăng ký Bản quyền. Thực hiện bởi TeamFlash',
+    'web-name' => 'MOVIE',
+    'copy-rights' => 'Movie, 2012. Thực hiện bởi Hung',
     //btn
     'delete' => 'Xóa',
     'edit' => 'Sửa',

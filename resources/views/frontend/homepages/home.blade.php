@@ -73,13 +73,7 @@
                     </div>
                 @endforeach
             </div>
-            <aside class="col-sm-4 col-md-3">
-                <div class="sitebar first-banner--left">
-                    <div class="banner-wrap first-banner--left">
-                        <img alt='banner' src="{{ asset(config('app.image_url') . '500x500.png') }}">
-                    </div>
-                </div>
-            </aside>
+            
         </div>
     </div>     
 </section> 
