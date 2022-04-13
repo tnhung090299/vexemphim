@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-<div class="container">
+<div class="container"> 
     <a class="btn btn-success mb-3" href="javascript:void(0)" id="createMovie"><?php echo e(__('label.createMovie')); ?></a><a id="mess"></a>
     <table class="display data-table">
         <thead>
@@ -13,8 +13,12 @@
             </tr>
         </thead>
         <tbody>
-        </tbody>
+           
+               
+		
+		</tbody>
     </table>
+    
 </div>
 <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -40,9 +44,9 @@
                             <div class="col-sm-12">
                                 <select class="form-control" id="status" name="status">
                                     <option value=""><?php echo e(__('label.chooseStatus')); ?></option>
-                                    <option value="1"><?php echo e(__('label.showing')); ?></option>
-                                    <option value="2"><?php echo e(__('label.soon')); ?></option>
-                                    <option value="3"><?php echo e(__('label.closed')); ?></option>
+                                    <option value="1"><?php echo e(__('Đang chiếu')); ?></option>
+                                    <option value="2"><?php echo e(__('Sắp chiếu')); ?></option>
+                                    <option value="3"><?php echo e(__('Đã đóng')); ?></option>
                                 </select>
                             </div>
                         </div>

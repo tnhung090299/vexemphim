@@ -6,10 +6,7 @@
             <div class="col-sm-10"><h1>{{ $user->name }}</h1></div>
         </div>
         <div class="row">
-            <div class="col-sm-3"><!--left col-->
-                <div class="text-center">
-                    <img src="" class="avatar img-circle img-thumbnail">
-                </div>  
+           
             </div><!--/col-3-->
             <div class="col-sm-9">
                 <ul class="nav nav-tabs">
@@ -88,7 +85,7 @@
                                 <th>{{ __('label.detail') }}</th>
                             </thead>
                             <tbody>
-                                @foreach ($bills as key$ => $bill)
+                                @foreach ($bills as $key => $bill)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $bill->total }}</td>
@@ -131,6 +128,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

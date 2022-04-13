@@ -1,11 +1,13 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
+    
     <table class="display data-table">
+        
         <thead>
             <tr>
                 <th></th>
                 <th><?php echo e(__('label.id')); ?></th>
-                <th><?php echo e(__('label.name')); ?></th>
+                <th><?php echo e(__('label.name')); ?></th> 
                 <th><?php echo e(__('label.email')); ?></th>
                 <th><?php echo e(__('label.role')); ?></th>
                 <th><?php echo e(__('label.created_at')); ?></th>

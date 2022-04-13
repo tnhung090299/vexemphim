@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('content')
-<div class="container">
+<div class="container"> 
     <a class="btn btn-success mb-3" href="javascript:void(0)" id="createMovie">{{ __('label.createMovie') }}</a><a id="mess"></a>
     <table class="display data-table">
         <thead>
@@ -14,8 +14,12 @@
             </tr>
         </thead>
         <tbody>
-        </tbody>
+           
+               
+		
+		</tbody>
     </table>
+    
 </div>
 <div class="modal fade" id="ajaxModel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -41,9 +45,9 @@
                             <div class="col-sm-12">
                                 <select class="form-control" id="status" name="status">
                                     <option value="">{{ __('label.chooseStatus') }}</option>
-                                    <option value="1">{{ __('label.showing') }}</option>
-                                    <option value="2">{{ __('label.soon') }}</option>
-                                    <option value="3">{{ __('label.closed') }}</option>
+                                    <option value="1">{{ __('Đang chiếu') }}</option>
+                                    <option value="2">{{ __('Sắp chiếu') }}</option>
+                                    <option value="3">{{ __('Đã đóng') }}</option>
                                 </select>
                             </div>
                         </div>

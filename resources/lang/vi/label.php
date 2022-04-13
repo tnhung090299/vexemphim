@@ -36,7 +36,7 @@ return [
     'all_now' => 'Tất cả các bộ phim đang chiếu',
     'now_cinema' => 'Phim đang chiếu',
     //admin create new
-    'id' => 'Id',
+    'id' => 'ID',
     'name' => 'Tên',
     'address' => 'Địa chỉ',
     'movieName' => 'Tên phim',
@@ -128,6 +128,7 @@ return [
     //btn
     'delete' => 'Xóa',
     'edit' => 'Sửa',
+    'role' => 'Chức vụ',
     //register
     'By-title' => 'Theo tiêu đề',
     'By-year' => 'Theo năm',

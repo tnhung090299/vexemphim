@@ -36,7 +36,8 @@ return [
     'all_now' => 'kiểm tra tất cả các phim hiện đang phát',
     'now_cinema' => 'Hiện đang ở rạp chiếu phim',
     //admin create new
-    'id' => 'Id',
+    'id' => 'ID',
+    'role' => 'Chức vụ',
     'name' => 'Tên',
     'address' => 'Địa chỉ',
     'movieName' => 'Tên phim',

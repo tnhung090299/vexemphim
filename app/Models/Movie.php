@@ -13,6 +13,7 @@ use DB;
 class Movie extends Model
 {
     use FullTextSearch;
+    
     protected $searchable = [
         'name',
     ];

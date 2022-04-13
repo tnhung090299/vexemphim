@@ -1,12 +1,14 @@
 @extends('admin.layouts.master')
 @section('content')
 <div class="container">
+    
     <table class="display data-table">
+        
         <thead>
             <tr>
                 <th></th>
                 <th>{{ __('label.id') }}</th>
-                <th>{{ __('label.name') }}</th>
+                <th>{{ __('label.name') }}</th> 
                 <th>{{ __('label.email') }}</th>
                 <th>{{ __('label.role') }}</th>
                 <th>{{ __('label.created_at') }}</th>
