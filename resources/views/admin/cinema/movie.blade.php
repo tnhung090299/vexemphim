@@ -155,13 +155,13 @@
                 name: 'status', 
                 render: function (data) {
                     switch (data){
-                        case '1':
+                        case 1:
                             return "{{ __('label.showing') }}";
                             break;
-                        case '2':
+                        case 2:
                             return "{{ __('label.soon') }}";
                             break;
-                        case '3':
+                        case 3:
                             return "{{ __('label.closed') }}";
                             break;
                         default:

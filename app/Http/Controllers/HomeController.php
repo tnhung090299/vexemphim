@@ -36,12 +36,12 @@ class HomeController extends Controller
             Cache::put('newHome', $new);
         }
 
-        if (Cache::has('slides')) {
-            $slides = Cache::get('slides');
-        } else {
+        // if (Cache::has('slides')) {
+        //     $slides = Cache::get('slides');
+        // } else {
             $slides = Slide::where('status', config('const.showing_movie_status'))->with('movie')->get();
-            Cache::put('slides', $slides);
-        }
+        //     Cache::put('slides', $slides);
+        // }
 
         return view('frontend.homepages.home', compact('best', 'new', 'slides'));
     }
