@@ -1,10 +1,12 @@
 <?php $__env->startSection('content'); ?>
 <div class="container">
-    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createRoomType"><?php echo e(__('label.createRoomType')); ?></a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createNewRoom"><?php echo e(__('label.createNewRoom')); ?></a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
                 <th><?php echo e(__('label.id')); ?></th>
+                <th><?php echo e(__('label.cinemaName')); ?></th>
+                <th><?php echo e(__('label.roomType')); ?></th>
                 <th><?php echo e(__('label.name')); ?></th>
                 <th><?php echo e(__('label.note')); ?></th>
                 <th><?php echo e(__('label.action')); ?></th>
@@ -24,12 +26,32 @@
                 <ul></ul>
             </div>
             <div class="modal-body">
-                <form id="roomTypeForm" name="roomTypeForm" class="form-horizontal">
-                   <input type="hidden" name="room_type_id" id="room_type_id">
+                <form id="roomForm" name="roomForm" class="form-horizontal">
+                    <input type="hidden" name="room_id" id="room_id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label"><?php echo e(__('label.name')); ?></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo e(__('label.enterName')); ?>">
+                            <select class="form-control" id="cinema_id" name="cinema_id">
+                                <option value=''><?php echo e(__('label.chooseCinema')); ?></option>
+                                <?php $__currentLoopData = $cinemas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($data->id); ?>"><?php echo e($data->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <select class="form-control" id="room_type_id" name="room_type_id">
+                                <option value=''><?php echo e(__('label.chooseRoomType')); ?></option>
+                                <?php $__currentLoopData = $room_type; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($data->id); ?>"><?php echo e($data->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-4 control-label"><?php echo e(__('label.name')); ?></label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo e(__('label.enterName')); ?>" value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -60,28 +82,33 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "<?php echo e(route('room_type.index')); ?>",
+        order: [0, "desc"],
+        ajax: "<?php echo e(route('room.index')); ?>",
         columns: [
             {data: 'id', name: 'id'},
+            {data: 'cinema.name', name: 'cinema.name'},
+            {data: 'room_type.name', name: 'room_type.name'},
             {data: 'name', name: 'name'},
             {data: 'note', name: 'note'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
-    $('#createRoomType').click(function () {
-        $('#saveBtn').val("create-room_type");
-        $('#room_type_id').val('');
-        $('#roomTypeForm').trigger("reset");
-        $('#modelHeading').html("<?php echo e(__('label.createRoomType')); ?>");
+    $('#createNewRoom').click(function () {
+        $('#saveBtn').val("create-room");
+        $('#room_id').val('');
+        $('#roomForm').trigger("reset");
+        $('#modelHeading').html("<?php echo e(__('label.createNewRoom')); ?>");
         $('#ajaxModel').modal('show');
     });
-    $('body').on('click', '.editRoomType', function () {
-        var room_type_id = $(this).data('id');
-        $.get("<?php echo e(route('room_type.index')); ?>" + '/' + room_type_id + '/edit', function (data) {
-            $('#modelHeading').html("<?php echo e(__('label.editRoomType')); ?>");
-            $('#saveBtn').val("edit-room_type");
+    $('body').on('click', '.editRoom', function () {
+        var room_id = $(this).data('id');
+        $.get("<?php echo e(route('room.index')); ?>" + '/' + room_id + '/edit', function (data) {
+            $('#modelHeading').html("<?php echo e(__('label.editRoom')); ?>");
+            $('#saveBtn').val("edit-room");
             $('#ajaxModel').modal('show');
-            $('#room_type_id').val(data.id);
+            $('#room_id').val(data.id);
+            $('#cinema_id').val(data.cinema_id);
+            $('#room_type_id').val(data.room_type_id);
             $('#name').val(data.name);
             $('#note').val(data.note);
         })
@@ -90,8 +117,8 @@
         e.preventDefault();
         $(this).html('<?php echo e(__('label.sending')); ?>');
         $.ajax({
-            data: $('#roomTypeForm').serialize(),
-            url: "<?php echo e(route('room_type.store')); ?>",
+            data: $('#roomForm').serialize(),
+            url: "<?php echo e(route('room.store')); ?>",
             type: "POST",
             dataType: 'json',
             success: function (data) {
@@ -101,7 +128,7 @@
                 swal("Saved!", data.success, "success");
                 $('#saveBtn').html('<?php echo e(__('label.saveChange')); ?>');
             },
-            error: function(data) {
+           error: function(data) {
                 var x = JSON.parse(data.responseText);
                 printErrorMsg(x.errors);
                 setTimeout(function(){
@@ -111,8 +138,8 @@
             }
         });
     });
-    $('body').on('click', '.deleteRoomType', function () {
-        var room_type_id = $(this).data("id");
+    $('body').on('click', '.deleteRoom', function () {
+        var room_id = $(this).data("id");
         swal({
             title: "Bạn chắc chắn xóa chứ!",
             text: "Một Khi bạn ấn xóa, dử liệu này của bạn sẽ không thể khôi phục được!",
@@ -124,7 +151,7 @@
             if (willDelete) {
                 $.ajax({
                 type: "DELETE",
-                url: "<?php echo e(route('room_type.store')); ?>" + '/' + room_type_id,
+                url: "<?php echo e(route('room.store')); ?>" + '/' + room_id,
                 success: function (data) {
                     table.draw();
                     swal(data.success, {
@@ -140,7 +167,7 @@
             } else {
                 swal("Cancelled!");
             }
-        });
+        });    
     });    
 });
 function printErrorMsg (msg) {
@@ -153,4 +180,4 @@ function printErrorMsg (msg) {
 </script>
 <?php $__env->stopPush(); ?>
 
-<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views\admin\cinema\room_type.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views/admin/cinema/room.blade.php ENDPATH**/ ?>

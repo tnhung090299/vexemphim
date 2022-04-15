@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $m = Movie::with('votes')->get();
+        $m = Movie::with('votes')->where('status', config('const.showing_movie_status'))->get();
         foreach ($m as $key => $data) {
             $m[$key]['point'] = $data->votes->avg('point');
         }        

@@ -225,4 +225,4 @@
     });
 </script>
 <?php $__env->stopPush(); ?>
-<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views\frontend\user\profile.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views/frontend/user/profile.blade.php ENDPATH**/ ?>

@@ -38,7 +38,7 @@ class MovieRequest extends FormRequest
         ];
         if (request()->hasFile('image') || !request('movie_id'))
         {
-            $rules = array_merge($rules, ['image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2028']);
+            $rules = array_merge($rules, ['image' => 'required']);
         }
 
         return $rules;

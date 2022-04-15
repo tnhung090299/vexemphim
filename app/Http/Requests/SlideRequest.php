@@ -28,7 +28,7 @@ class SlideRequest extends FormRequest
             'status' => 'required|integer',
         ];
         if (request()->hasFile('image') || !request('slide_id')) {
-            $rules = array_merge($rules, ['image' => 'required|image|mimes:png,jpg|max:2028']);
+            $rules = array_merge($rules, ['image' => 'required']);
         }
         if (!request('slide_id')) {
             $rules = array_merge($rules, ['movie_id' => 'unique:slides']);
