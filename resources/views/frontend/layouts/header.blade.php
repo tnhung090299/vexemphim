@@ -70,9 +70,6 @@
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('profile.index') }}">{{ __('label.profile') }}</a></li>
-                            @if (Auth::user()->role == 1)
-                                <li><a href="{{ route('admin-home') }}">{{ __('label.Admin') }}</a></li>
-                            @endif
                             <li>
                                 <a href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"
                                     onclick="event.preventDefault();

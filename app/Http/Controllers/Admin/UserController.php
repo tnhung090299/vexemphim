@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Validator;
@@ -29,6 +30,14 @@ class UserController extends Controller
             }
             
             return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editUser"><i class="fas fa-edit"></i></a>';
+                    $btn = $btn . ' <a href="javascript:void(0)" data-toggle="tooltip" data-id="' . $row->id . '" class="btn btn-danger btn-sm deleteUser"><i class="fas fa-trash-alt"></i></a>';
+
+                    return $btn;
+                })
+                ->rawColumns(['action'])
                 ->make(true);
         }
 
@@ -51,9 +60,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        User::updateOrCreate(
+        [
+            'id' => $request->user_id,
+        ],
+        [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => $request->role,
+            'address' => $request->address,
+            'mobile' => $request->mobile,
+        ]);
+
+        return response()->json(['success' => __('label.userSave')]);
     }
 
     /**
@@ -75,7 +97,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cinema = User::findOrFail($id);
+
+        return response()->json($cinema);
     }
 
     /**
@@ -98,6 +122,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::findOrFail($id)->delete();
+
+        return response()->json(['success' => __('label.userDel')]);
     }
 }

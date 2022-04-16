@@ -32,7 +32,13 @@ class UserRequest extends FormRequest
                 'rePass' => 'required|same:newPass',
             ];
         } else {
-            return [];
+            return [
+                'name' => 'required',
+                'email' => 'required',
+                'password' => 'required|min:6',
+                'address' => 'required',
+                'mobile' => 'required|min:10|max:15',
+        ];
         }
     }
 }

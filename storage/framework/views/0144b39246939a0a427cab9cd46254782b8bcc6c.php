@@ -1,24 +1,23 @@
-@extends('admin.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container">
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>{{ __('label.id') }}</th>
-                <th>{{ __('label.code') }}</th>
-                <th>{{ __('label.total') }}</th>
-                <th>{{ __('label.status') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.updated_at') }}</th>
-                <th>{{ __('label.action') }}</th>
+                <th><?php echo e(__('label.id')); ?></th>
+                <th><?php echo e(__('label.code')); ?></th>
+                <th><?php echo e(__('label.total')); ?></th>
+                <th><?php echo e(__('label.status')); ?></th>
+                <th><?php echo e(__('label.created_at')); ?></th>
+                <th><?php echo e(__('label.updated_at')); ?></th>
+                <th><?php echo e(__('label.action')); ?></th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
 </div>
-@stop
-@push('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('scripts'); ?>
 <script type="text/javascript">
     $(function () {
         $.ajaxSetup({
@@ -30,7 +29,7 @@
         processing: true,
         serverSide: true,
         order: [0, "desc"],
-        ajax: "{{ route('ticket.index') }}",
+        ajax: "<?php echo e(route('ticket.index')); ?>",
         columns: [
             {data: 'id', name: 'id'},
             {data: 'code', name: 'code'},
@@ -44,7 +43,7 @@
     });
     $('body').on('click', '.viewDetail', function () {
         var bill_id = $(this).data('id');
-        $.get("{{ route('pdf.index') }}" + '/' + bill_id, function (data) {
+        $.get("<?php echo e(route('pdf.index')); ?>" + '/' + bill_id, function (data) {
             table.draw();
             if (data.success) {
                 swal("Printed!", data.success, "success");
@@ -55,4 +54,6 @@
     });
 });
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views/admin/cinema/ticket.blade.php ENDPATH**/ ?>

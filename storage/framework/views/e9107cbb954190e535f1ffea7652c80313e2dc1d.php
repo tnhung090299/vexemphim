@@ -71,9 +71,6 @@
                         <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo e(route('profile.index')); ?>"><?php echo e(__('label.profile')); ?></a></li>
-                            <?php if(Auth::user()->role == 1): ?>
-                                <li><a href="<?php echo e(route('admin-home')); ?>"><?php echo e(__('label.Admin')); ?></a></li>
-                            <?php endif; ?>
                             <li>
                                 <a href="<?php echo e(route('logout')); ?>" data-toggle="modal" data-target="#logoutModal"
                                     onclick="event.preventDefault();

@@ -25,6 +25,7 @@ Route::group(['middleware' => 'user'], function() {
 Route::get('now-showing', 'MovieController@nowShowing')->name('now-showing');
 Route::get('comming-soon', 'MovieController@commingSoon')->name('comming-soon');
 Auth::routes();
+Route::post('/login', 'LoginController@login');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::get('/', 'AdminHomeController@index')->name('admin-home');
     Route::resource('cinema', 'CinemaController');

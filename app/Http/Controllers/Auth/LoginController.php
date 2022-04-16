@@ -42,5 +42,6 @@ class LoginController extends Controller
     public function redirectTo()
     {
         return Session::get('backUrl') ? Session::get('backUrl') :   $this->redirectTo;
+        
     }
 }

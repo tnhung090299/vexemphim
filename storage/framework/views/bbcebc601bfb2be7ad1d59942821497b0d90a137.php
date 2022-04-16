@@ -1,16 +1,15 @@
-@extends('admin.layouts.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container">
-    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createUser">{{ __('label.createUser') }}</a><a id="mess"></a>
+    <a class="btn btn-success mb-3" href="javascript:void(0)" id="createUser"><?php echo e(__('label.createUser')); ?></a><a id="mess"></a>
     <table class="table table-bordered data-table">
         <thead>
             <tr>
-                <th>{{ __('label.id') }}</th>
-                <th>{{ __('label.name') }}</th>
-                <th>{{ __('label.email') }}</th>
-                <th>{{ __('label.role') }}</th>
-                <th>{{ __('label.created_at') }}</th>
-                <th>{{ __('label.action') }}</th>
+                <th><?php echo e(__('label.id')); ?></th>
+                <th><?php echo e(__('label.name')); ?></th>
+                <th><?php echo e(__('label.email')); ?></th>
+                <th><?php echo e(__('label.role')); ?></th>
+                <th><?php echo e(__('label.created_at')); ?></th>
+                <th><?php echo e(__('label.action')); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -30,37 +29,37 @@
                 <form id="UserForm" name="UserForm" class="form-horizontal">
                     <input type="hidden" name="user_id" id="user_id">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">{{ __('label.Name') }}</label>
+                        <label for="name" class="col-sm-2 control-label"><?php echo e(__('label.Name')); ?></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('label.enterName') }}">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo e(__('label.enterName')); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ __('label.Email') }}</label>
+                        <label class="col-sm-4 control-label"><?php echo e(__('label.Email')); ?></label>
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="{{ __('label.enterEmail') }}">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="<?php echo e(__('label.enterEmail')); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ __('label.Password') }}</label>
+                        <label class="col-sm-4 control-label"><?php echo e(__('label.Password')); ?></label>
                         <div class="col-sm-12">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="{{ __('label.enterPassword') }}">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="<?php echo e(__('label.enterPassword')); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ __('label.Address') }}</label>
+                        <label class="col-sm-4 control-label"><?php echo e(__('label.Address')); ?></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="address" name="address" placeholder="{{ __('label.enterAddress') }}">
+                            <input type="text" class="form-control" id="address" name="address" placeholder="<?php echo e(__('label.enterAddress')); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">{{ __('label.Mobile') }}</label>
+                        <label class="col-sm-4 control-label"><?php echo e(__('label.Mobile')); ?></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="{{ __('label.enterMobile') }}">
+                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="<?php echo e(__('label.enterMobile')); ?>">
                         </div>
                     </div>
                     <div class="form-group">
-                    <label class="col-sm-4 control-label">{{ __('label.Role') }}</label>
+                    <label class="col-sm-4 control-label"><?php echo e(__('label.Role')); ?></label>
                         <select name="role" id="role" class="form-control" style="width: 94%; margin-left: 13px;">
                             <option class="isblue" value="0">User</option>
                             <option class="isblue" value="1">Admin</option>
@@ -76,7 +75,8 @@
                     </div>
                     
                     <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">{{ __('label.saveChange') }}
+                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create"><?php echo e(__('label.saveChange')); ?>
+
                      </button>
                     </div>
                 </form>
@@ -84,8 +84,8 @@
         </div>
     </div>
 </div>
-@stop
-@push('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('scripts'); ?>
 <script type="text/javascript">
     $(function () {
         $.ajaxSetup({
@@ -96,7 +96,7 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('user.index') }}",
+        ajax: "<?php echo e(route('user.index')); ?>",
         columns: [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
@@ -107,10 +107,10 @@
                 render: function (data) {
                     switch (data){
                         case 1:
-                            return "{{ __('label.admin') }}";
+                            return "<?php echo e(__('label.admin')); ?>";
                             break;
                         default:
-                            return "{{ __('label.user') }}";
+                            return "<?php echo e(__('label.user')); ?>";
                             break;
                     }
                 },
@@ -123,13 +123,13 @@
         $('#saveBtn').val("create-user");
         $('#user_id').val('');
         $('#UserForm').trigger("reset");
-        $('#modelHeading').html("{{ __('label.createUser') }}");
+        $('#modelHeading').html("<?php echo e(__('label.createUser')); ?>");
         $('#ajaxModel').modal('show');
     });
     $('body').on('click', '.editUser', function () {
         var user_id = $(this).data('id');
-        $.get("{{ route('user.index') }}" + '/' + user_id + '/edit', function (data) {
-            $('#modelHeading').html("{{ __('label.editUser') }}");
+        $.get("<?php echo e(route('user.index')); ?>" + '/' + user_id + '/edit', function (data) {
+            $('#modelHeading').html("<?php echo e(__('label.editUser')); ?>");
             $('#saveBtn').val("edit-user");
             $('#ajaxModel').modal('show');
             $('#user_id').val(data.id);
@@ -142,10 +142,10 @@
     });
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('{{ __('label.sending') }}');
+        $(this).html('<?php echo e(__('label.sending')); ?>');
         $.ajax({
             data: $('#UserForm').serialize(),
-            url: "{{ route('user.store') }}",
+            url: "<?php echo e(route('user.store')); ?>",
             type: "POST",
             dataType: 'json',
             success: function (data) {
@@ -153,7 +153,7 @@
                 $('#ajaxModel').modal('hide');
                 table.draw();
                 swal("Saved!", data.success, "success");
-                $('#saveBtn').html('{{ __('label.saveChange') }}');
+                $('#saveBtn').html('<?php echo e(__('label.saveChange')); ?>');
             },
             error: function(data) {
                 var x = JSON.parse(data.responseText);
@@ -161,7 +161,7 @@
                 setTimeout(function(){
                         $('#error').hide();
                     }, 3000);
-                $('#saveBtn').html('{{ __('label.saveChange') }}');
+                $('#saveBtn').html('<?php echo e(__('label.saveChange')); ?>');
             }
         });
     });
@@ -178,7 +178,7 @@
             if (willDelete) {
                 $.ajax({
                 type: "DELETE",
-                url: "{{ route('user.store') }}" + '/' + user_id,
+                url: "<?php echo e(route('user.store')); ?>" + '/' + user_id,
                 success: function (data) {
                     table.draw();
                     swal(data.success, {
@@ -205,4 +205,6 @@ function printErrorMsg (msg) {
     });
 }
 </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('admin.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\wampp\www\vexemphim\resources\views/admin/cinema/user.blade.php ENDPATH**/ ?>
